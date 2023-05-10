@@ -1,17 +1,23 @@
 package com.game.entity;
 
+
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
 import java.util.Date;
 
-
+@Table(name = "player", schema = "rpg")
 public class Player {
+    @Column(name = "id", nullable = false)
     private Long id;
-
+    @Column(name = "name", length = 12, nullable = false)
     private String name;
-
+    @Column(name = "title", length = 30, nullable = false)
     private String title;
-
+    @Enumerated(EnumType.ORDINAL)
     private Race race;
-
+    @Enumerated(EnumType.ORDINAL)
     private Profession profession;
 
     private Date birthday;
